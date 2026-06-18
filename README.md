@@ -19,7 +19,7 @@ We provide several Schedule-Free optimizer implementations:
 
 `ScheduleFreeReference` versions have a simplified implementation, but which use more memory. There are also `ScheduleFreeClosure` versions which can be used with PyTorch's optimizer step closures.
 
-A [Jax implementation](https://optax.readthedocs.io/en/latest/api/contrib.html#schedule-free) is availiable as part of Optax.
+A [Jax implementation](https://optax.readthedocs.io/en/latest/api/contrib.html#schedule-free) is available as part of Optax.
 
 ## Approach
 Schedule-Free learning replaces the momentum of an underlying optimizer with a combination of interpolation and averaging. In the case of gradient descent, the basic Schedule-Free update is:
@@ -36,7 +36,7 @@ Here $x$ is the sequence that evaluations of test/val loss should occur at, whic
 
 As the name suggests, Schedule-Free learning does not require a decreasing learning rate schedule, yet typically out-performs, or at worst matches, SOTA schedules such as cosine-decay and linear decay. Only two sequences need to be stored at a time (the third can be computed from the other two on the fly) so this method has the same memory requirements as the base optimizer (parameter buffer + momentum).
 
-We provide both AdamW and SGD versions in this repo, as we as an experimental
+We provide both AdamW and SGD versions in this repo, as well as an experimental
 wrapper version that can be used with any base optimizer.
 
 ## How to Use
@@ -62,7 +62,7 @@ If you use Schedule-Free training in your work, please cite our [preprint](https
 *New* Version 1.4 adds a RAdam implementation by [nhamanasu](https://github.com/nhamanasu).
 
 Version 1.3 changes the behavior of weight decay during learning rate warmup
-to improve stabiliy and be more consistant with the behavior of standard AdamW in PyTorch. The previous implementation is still available as `AdamWScheduleFreePaper`.
+to improve stability and be more consistent with the behavior of standard AdamW in PyTorch. The previous implementation is still available as `AdamWScheduleFreePaper`.
 
 ### Examples
 Examples of using the `schedulefree` package can be found in the `examples` folder. These include:
